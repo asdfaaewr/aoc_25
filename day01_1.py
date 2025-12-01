@@ -11,11 +11,8 @@ for line in data:
     else:
         pos = (pos - int(line[1:])) % 100
 
-
     if pos == 0:
         count += 1
-
-
 
 print(count)
 
