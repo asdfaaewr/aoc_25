@@ -12,47 +12,23 @@ for r in range(len(data)):
             papers.add((r,c))
 
 temp = len(papers)
+
 while True:
     remove = set()
-    for r,c in papers:
+    for r, c in papers:
         p = 0
 
-        if (r,c) in papers:
-            for dr, dc in dirs:
-                if r+dr >= len(data) or r+dr < 0 or c+dc >= len(data[0]) or c+dc < 0: continue
-                if (r+dr, c+dc) in papers:
-                    p +=1
+        for dr, dc in dirs:
+            if r+dr >= len(data) or r+dr < 0 or c+dc >= len(data[0]) or c+dc < 0: continue
+            if (r+dr, c+dc) in papers:
+                p +=1
 
-            if p <4:
-                remove.add((r,c))
-                tot += 1
-    
+        if p <4:
+            remove.add((r,c))
+            tot += 1
+
     if len(remove) == 0:
         print(temp-len(papers))
         break
 
     papers = papers - remove
-
-
-
-    # while True:
-    # remove = set()
-    # for r in range(len(data)):
-    #     for c in range(len(data[0])):
-    #         p = 0
-
-    #         if (r,c) in papers:
-    #             for dr, dc in dirs:
-    #                 if r+dr >= len(data) or r+dr < 0 or c+dc >= len(data[0]) or c+dc < 0: continue
-    #                 if (r+dr, c+dc) in papers:
-    #                     p +=1
-
-    #             if p <4:
-    #                 remove.add((r,c))
-    #                 tot += 1
-    
-    # if len(remove) == 0:
-    #     print(temp-len(papers))
-    #     break
-
-    # papers = papers - remove
