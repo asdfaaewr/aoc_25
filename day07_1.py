@@ -15,4 +15,3 @@ for r in range(1, len(data)):
                 data[r][c] = '|'
 
 print(tot)
-
